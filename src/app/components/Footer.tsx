@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
 import caLogo from '../../imports/New_CA_India_Logo.png';
+import { BRAND_GREEN } from '../constants/brand';
 
 export default function Footer() {
   return (
@@ -12,7 +13,7 @@ export default function Footer() {
               <img src={caLogo} alt="CA India Logo" className="h-12 w-auto" />
               <div>
                 <div className="font-bold text-lg" style={{ color: '#0B6EB0' }}>Shivanichchi & Co.</div>
-                <div className="text-xs tracking-wider" style={{ color: '#F47920' }}>CHARTERED ACCOUNTANTS</div>
+                <div className="text-xs tracking-wider" style={{ color: BRAND_GREEN }}>CHARTERED ACCOUNTANTS</div>
               </div>
             </div>
             <p className="text-white/70 text-sm leading-relaxed">
@@ -50,15 +51,15 @@ export default function Footer() {
             <ul className="space-y-3 sm:space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#2BB673] flex-shrink-0 mt-0.5" />
-                <span className="text-white/70 text-xs sm:text-sm">123 Business District, Corporate Plaza, Mumbai - 400001</span>
+                <span className="text-white/70 text-xs sm:text-sm"># 824, 13th Cross, Mahalakshmi Layout, Bengaluru - 560 086.</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-[#2BB673] flex-shrink-0" />
-                <span className="text-white/70 text-xs sm:text-sm">+91 22 1234 5678</span>
+                <span className="text-white/70 text-xs sm:text-sm">+91 9901103901</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-[#2BB673] flex-shrink-0" />
-                <span className="text-white/70 text-xs sm:text-sm">info@yourfirm.com</span>
+                <span className="text-white/70 text-xs sm:text-sm">shivanichchiashok@gmail.com</span>
               </li>
             </ul>
 
@@ -85,6 +86,14 @@ export default function Footer() {
           <p className="text-white/60 text-xs sm:text-sm text-center md:text-left">
             © 2026 Shivanichchi & Co. All rights reserved.
           </p>
+          <a
+            href="https://blackmattertech.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/60 hover:text-[#2BB673] transition-colors text-xs sm:text-sm text-center"
+          >
+            Powered by BlackMatter Technologies Pvt. Ltd.
+          </a>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm">
             <a href="#" className="text-white/60 hover:text-[#2BB673] transition-colors">Privacy Policy</a>
             <a href="#" className="text-white/60 hover:text-[#2BB673] transition-colors">Terms of Service</a>

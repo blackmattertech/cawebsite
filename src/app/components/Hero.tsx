@@ -1,4 +1,5 @@
 import { Users, Shield, TrendingUp } from 'lucide-react';
+import SplitText from './ui/SplitText';
 
 export default function Hero() {
   return (
@@ -24,16 +25,31 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6 sm:space-y-8">
-            <div className="inline-block">
-              <span className="text-[#2BB673] tracking-[0.15em] sm:tracking-[0.2em] text-xs sm:text-sm font-medium">
-                CHARTERED ACCOUNTANTS
-              </span>
-            </div>
-
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
-              Building Trust.
-              <br />
-              <span className="text-[#F47920]">Delivering Excellence.</span>
+              <SplitText
+                text="Building Trust."
+                tag="span"
+                className="block"
+                display="block"
+                textAlign="left"
+                splitType="chars"
+                delay={35}
+                duration={1}
+                from={{ opacity: 0, y: 30 }}
+                to={{ opacity: 1, y: 0 }}
+              />
+              <SplitText
+                text="Delivering Excellence."
+                tag="span"
+                className="block text-[#F47920]"
+                display="block"
+                textAlign="left"
+                splitType="chars"
+                delay={35}
+                duration={1}
+                from={{ opacity: 0, y: 30 }}
+                to={{ opacity: 1, y: 0 }}
+              />
             </h1>
 
             <p className="text-base sm:text-lg text-white/90 max-w-xl leading-relaxed">

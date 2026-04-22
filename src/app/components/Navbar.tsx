@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import caLogo from '../../imports/New_CA_India_Logo.png';
+import { BRAND_GREEN } from '../constants/brand';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,7 +17,7 @@ export default function Navbar() {
               <img src={caLogo} alt="CA India Logo" className="h-12 sm:h-14 w-auto" />
               <div className="hidden sm:block">
                 <div className="font-bold text-lg" style={{ color: '#0B6EB0' }}>Shivanichchi & Co.</div>
-                <div className="text-xs tracking-wider" style={{ color: '#F47920' }}>CHARTERED ACCOUNTANTS</div>
+                <div className="text-xs tracking-wider" style={{ color: BRAND_GREEN }}>CHARTERED ACCOUNTANTS</div>
               </div>
             </div>
           </div>
