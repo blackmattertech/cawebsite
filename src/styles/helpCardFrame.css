@@ -1,0 +1,97 @@
+/* Running border light on hover — adapted from Uiverse.io by ElSombrero2 */
+
+@keyframes help-card-border-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.help-card-frame {
+  position: relative;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 0.75rem;
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+@media (min-width: 640px) {
+  .help-card-frame {
+    border-radius: 1rem;
+  }
+}
+
+.help-card-frame::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80px;
+  height: 360px;
+  margin-left: -40px;
+  margin-top: -180px;
+  z-index: 0;
+  opacity: 0;
+  background: linear-gradient(180deg, #ff2288, #387ef0);
+  transition: opacity 300ms;
+  animation: help-card-border-rotate 8s linear infinite;
+  animation-play-state: paused;
+}
+
+.help-card-frame:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+.help-card-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 280px;
+  overflow: hidden;
+  border-radius: calc(0.75rem - 2px);
+  background: #ffffff;
+}
+
+@media (min-width: 640px) {
+  .help-card-inner {
+    min-height: 300px;
+    border-radius: calc(1rem - 2px);
+  }
+}
+
+.help-card-inner::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 5px;
+  height: 50px;
+  left: 50%;
+  top: 1.25rem;
+  transform: translateX(-50%);
+  background: #fff;
+  filter: blur(22px);
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 300ms;
+  pointer-events: none;
+}
+
+.help-card-frame:hover .help-card-inner::before {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .help-card-frame::before {
+    animation: none;
+  }
+
+  .help-card-frame:hover::before {
+    opacity: 0.85;
+  }
+}

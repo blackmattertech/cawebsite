@@ -1,6 +1,7 @@
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
 import caLogo from '../../imports/New_CA_India_Logo.png';
 import { BRAND_GREEN } from '../constants/brand';
+import { CONTACT_ADDRESS_LINE, CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from '../constants/contact';
 
 export default function Footer() {
   return (
@@ -55,11 +56,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-[#2BB673] flex-shrink-0" />
-                <span className="text-white/70 text-xs sm:text-sm">+91 9901103901</span>
+                <span className="text-white/70 text-xs sm:text-sm">{CONTACT_PHONE_DISPLAY}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-[#2BB673] flex-shrink-0" />
-                <span className="text-white/70 text-xs sm:text-sm">shivanichchiashok@gmail.com</span>
+                <span className="text-white/70 text-xs sm:text-sm">{CONTACT_EMAIL}</span>
               </li>
             </ul>
 

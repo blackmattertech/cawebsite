@@ -26,6 +26,17 @@ This directory is for storing image assets used throughout the CA firm website.
 - **Recommended format**: JPG
 - **Recommended size**: 800x500px
 
+### 4. About — “Trusted partner” wide image
+- **File**: `public/images/about-trusted-partner.png`
+- **Used by**: `src/app/components/AboutTrustedPartnerBlock.tsx`
+- **Fallback**: If the file is missing, an Unsplash office image loads automatically.
+- **Recommended**: Landscape, 1600×900px or larger, PNG or WebP.
+
+### 5. Services — “How can we help you?” hover cards
+- **Files**: `public/images/helpcard1.png` … `helpcard4.png` (one per card, order left to right).
+- **Used by**: `src/app/components/Services.tsx` — each image fills the card on **hover** (desktop / fine pointer).
+- **Recommended**: Square or portrait PNG/JPG, sharp at card size (~300–400px wide).
+
 ## How to Replace Images
 
 ### For local images stored in this directory:

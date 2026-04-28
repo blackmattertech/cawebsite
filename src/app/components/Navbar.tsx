@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import caLogo from '../../imports/New_CA_India_Logo.png';
 import { BRAND_GREEN } from '../constants/brand';
@@ -13,25 +14,25 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0B6EB0]">
               <img src={caLogo} alt="CA India Logo" className="h-12 sm:h-14 w-auto" />
               <div className="hidden sm:block">
                 <div className="font-bold text-lg" style={{ color: '#0B6EB0' }}>Shivanichchi & Co.</div>
                 <div className="text-xs tracking-wider" style={{ color: BRAND_GREEN }}>CHARTERED ACCOUNTANTS</div>
               </div>
-            </div>
+            </Link>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-8">
-            <a href="#home" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
+            <Link to="/#home" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
               Home
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2BB673] group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="#about" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
+            </Link>
+            <Link to="/#about" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
               About Us
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2BB673] group-hover:w-full transition-all duration-300"></span>
-            </a>
+            </Link>
 
             {/* Services Dropdown */}
             <div
@@ -47,38 +48,41 @@ export default function Navbar() {
 
               {servicesOpen && (
                 <div className="absolute top-full mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2">
-                  <a href="#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">Taxation</a>
-                  <a href="#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">Audit & Assurance</a>
-                  <a href="#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">GST Consulting</a>
-                  <a href="#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">Compliance</a>
-                  <a href="#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">Business Advisory</a>
+                  <Link to="/#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">Taxation</Link>
+                  <Link to="/#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">Audit & Assurance</Link>
+                  <Link to="/#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">GST Consulting</Link>
+                  <Link to="/#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">Compliance</Link>
+                  <Link to="/#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">Business Advisory</Link>
                 </div>
               )}
             </div>
 
-            <a href="#industries" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
+            <Link to="/#industries" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
               Industries
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2BB673] group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="#resources" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
+            </Link>
+            <Link to="/#resources" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
               Resources
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2BB673] group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="#careers" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
+            </Link>
+            <Link to="/#careers" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
               Careers
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2BB673] group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="#contact" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
+            </Link>
+            <Link to="/contact" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
               Contact Us
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2BB673] group-hover:w-full transition-all duration-300"></span>
-            </a>
+            </Link>
           </div>
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <button className="bg-[#0B1F3A] text-white px-6 py-3 rounded-lg hover:bg-[#4A90E2] transition-colors shadow-md">
+            <Link
+              to="/contact"
+              className="inline-flex bg-[#0B1F3A] text-white px-6 py-3 rounded-lg hover:bg-[#4A90E2] transition-colors shadow-md"
+            >
               Get in Touch
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -94,16 +98,20 @@ export default function Navbar() {
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-gray-100">
             <div className="flex flex-col gap-4">
-              <a href="#home" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors">Home</a>
-              <a href="#about" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors">About Us</a>
-              <a href="#services" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors">Services</a>
-              <a href="#industries" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors">Industries</a>
-              <a href="#resources" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors">Resources</a>
-              <a href="#careers" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors">Careers</a>
-              <a href="#contact" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors">Contact Us</a>
-              <button className="bg-[#0B1F3A] text-white px-6 py-3 rounded-lg hover:bg-[#4A90E2] transition-colors w-full">
+              <Link to="/#home" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Home</Link>
+              <Link to="/#about" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
+              <Link to="/#services" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</Link>
+              <Link to="/#industries" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Industries</Link>
+              <Link to="/#resources" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Resources</Link>
+              <Link to="/#careers" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Careers</Link>
+              <Link to="/contact" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
+              <Link
+                to="/contact"
+                className="bg-[#0B1F3A] text-white px-6 py-3 rounded-lg hover:bg-[#4A90E2] transition-colors w-full text-center"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Get in Touch
-              </button>
+              </Link>
             </div>
           </div>
         )}

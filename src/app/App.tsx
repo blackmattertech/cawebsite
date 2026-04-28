@@ -1,25 +1,14 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import Industries from './components/Industries';
-import WhyChooseUs from './components/WhyChooseUs';
-import Testimonials from './components/Testimonials';
-import CTASection from './components/CTASection';
-import Footer from './components/Footer';
+import { BrowserRouter, Routes, Route } from 'react-router';
+import HomePage from './pages/HomePage';
+import ContactPage from './pages/ContactPage';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <Industries />
-      <WhyChooseUs />
-      <Testimonials />
-      <CTASection />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
