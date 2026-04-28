@@ -3,9 +3,9 @@ import { ArrowRight, Phone } from 'lucide-react';
 export default function CTASection() {
   return (
     <section
-      id="careers"
+      id="cta"
       className="scroll-mt-24 py-12 sm:py-16 md:py-24 bg-gradient-to-r from-[#0B1F3A] via-[#1a3a5f] to-[#4A90E2] relative overflow-hidden"
-      aria-label="Careers and contact call to action"
+      aria-label="Contact call to action"
     >
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-48 h-48 sm:w-96 sm:h-96 bg-white rounded-full blur-3xl"></div>

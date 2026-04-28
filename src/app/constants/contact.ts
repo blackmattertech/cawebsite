@@ -22,5 +22,6 @@ export function contactTelHref(): string {
 }
 
 export function contactWhatsAppHref(): string {
-  return `https://wa.me/${CONTACT_PHONE_DIGITS}`;
+  const message = 'Hello, we are looking for CA services, can we get in touch';
+  return `https://wa.me/${CONTACT_PHONE_DIGITS}?text=${encodeURIComponent(message)}`;
 }

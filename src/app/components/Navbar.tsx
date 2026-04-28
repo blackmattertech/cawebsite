@@ -52,10 +52,6 @@ export default function Navbar() {
               Resources
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2BB673] group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link to="/#careers" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
-              Careers
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2BB673] group-hover:w-full transition-all duration-300"></span>
-            </Link>
             <Link to="/contact" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
               Contact Us
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2BB673] group-hover:w-full transition-all duration-300"></span>
@@ -90,7 +86,6 @@ export default function Navbar() {
               <Link to="/services" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</Link>
               <Link to="/#industries" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Industries</Link>
               <Link to="/#resources" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Resources</Link>
-              <Link to="/#careers" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Careers</Link>
               <Link to="/contact" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
               <Link
                 to="/contact"
