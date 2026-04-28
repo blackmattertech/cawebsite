@@ -30,7 +30,7 @@ const ABOUT_HIGHLIGHTS = [
 
 export default function About() {
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-24 bg-white">
+    <section id="about" className="scroll-mt-24 py-12 sm:py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="mb-8 sm:mb-10 lg:mb-12">
           <span className="text-xs font-medium tracking-[0.15em] text-[#2BB673] sm:text-sm sm:tracking-[0.2em]">
@@ -109,13 +109,6 @@ export default function About() {
         </p>
 
         <div className="mt-6 flex flex-col items-stretch gap-4 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6">
-          <Link
-            to="/#services"
-            className="group inline-flex items-center justify-center gap-2 rounded-lg bg-[#0B1F3A] px-6 py-3 text-sm font-medium text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-[#4A90E2] hover:shadow-xl sm:px-8 sm:py-4 sm:text-base"
-          >
-            Learn More About Us
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 sm:h-5 sm:w-5" aria-hidden />
-          </Link>
           <Link
             to="/contact"
             className="inline-flex items-center justify-center gap-3 rounded-2xl px-6 py-3.5 text-sm font-semibold text-white shadow-md transition hover:brightness-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:text-base"

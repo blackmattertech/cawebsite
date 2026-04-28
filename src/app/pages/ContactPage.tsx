@@ -12,11 +12,18 @@ import {
   contactWhatsAppHref,
 } from '../constants/contact';
 
+import Seo from '../components/Seo';
+
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white text-[#1A1A1A]">
+      <Seo
+        title="Contact Us | Shivanichchi & Co. Chartered Accountants"
+        description="Contact Shivanichchi & Co. in Bengaluru: office address, phone, email, and WhatsApp for taxation, audit, GST, and advisory enquiries."
+        path="/contact"
+      />
       <Navbar />
-      <main className="pt-24 sm:pt-28 pb-16 sm:pb-20">
+      <main id="main-content" className="pt-24 sm:pt-28 pb-16 sm:pb-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <header className="mb-10 sm:mb-12">
             <p className="text-sm font-medium uppercase tracking-wider" style={{ color: BRAND_GREEN }}>

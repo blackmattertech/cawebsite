@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import caLogo from '../../imports/New_CA_India_Logo.png';
 import { BRAND_GREEN } from '../constants/brand';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 shadow-sm" aria-label="Primary">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-[#0B1F3A] focus:px-4 focus:py-2 focus:text-white focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-[#0B6EB0]"
+      >
+        Skip to main content
+      </a>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -34,28 +39,10 @@ export default function Navbar() {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2BB673] group-hover:w-full transition-all duration-300"></span>
             </Link>
 
-            {/* Services Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
-            >
-              <button className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors flex items-center gap-1 relative group">
-                Services
-                <ChevronDown className="w-4 h-4" />
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2BB673] group-hover:w-full transition-all duration-300"></span>
-              </button>
-
-              {servicesOpen && (
-                <div className="absolute top-full mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2">
-                  <Link to="/#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">Taxation</Link>
-                  <Link to="/#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">Audit & Assurance</Link>
-                  <Link to="/#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">GST Consulting</Link>
-                  <Link to="/#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">Compliance</Link>
-                  <Link to="/#services" className="block px-4 py-2 text-[#1A1A1A] hover:bg-[#F7F9FC] hover:text-[#4A90E2] transition-colors">Business Advisory</Link>
-                </div>
-              )}
-            </div>
+            <Link to="/services" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
+              Services
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2BB673] group-hover:w-full transition-all duration-300"></span>
+            </Link>
 
             <Link to="/#industries" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors relative group">
               Industries
@@ -100,7 +87,7 @@ export default function Navbar() {
             <div className="flex flex-col gap-4">
               <Link to="/#home" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Home</Link>
               <Link to="/#about" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
-              <Link to="/#services" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</Link>
+              <Link to="/services" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</Link>
               <Link to="/#industries" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Industries</Link>
               <Link to="/#resources" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Resources</Link>
               <Link to="/#careers" className="text-[#1A1A1A] hover:text-[#4A90E2] transition-colors" onClick={() => setMobileMenuOpen(false)}>Careers</Link>

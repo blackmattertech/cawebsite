@@ -3,7 +3,7 @@ import SplitText from './ui/SplitText';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-[100dvh] flex items-center pt-20 bg-[#F7F9FC]">
+    <section id="home" className="scroll-mt-24 relative min-h-[100dvh] flex items-center pt-20 bg-[#F7F9FC]">
       {/* Background Video Container */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Dark Overlay - only on left side for text readability */}

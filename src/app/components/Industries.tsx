@@ -1,35 +1,78 @@
-import { Factory, Rocket, ShoppingBag, Building2 } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import type { CarouselApi } from './ui/carousel';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 
-const industries = [
-  {
-    icon: Factory,
-    title: 'Manufacturing',
-    description: 'Specialized services for production and industrial businesses'
-  },
-  {
-    icon: Rocket,
-    title: 'Startups',
-    description: 'Support for emerging businesses and entrepreneurs'
-  },
-  {
-    icon: ShoppingBag,
-    title: 'Retail',
-    description: 'Comprehensive solutions for retail and e-commerce'
-  },
-  {
-    icon: Building2,
-    title: 'Real Estate',
-    description: 'Expert guidance for property and construction sectors'
+const IMAGE_EXTS = ['png', 'jpg', 'jpeg', 'webp'] as const;
+
+function CarouselImage({ index }: { index: number }) {
+  const [extIdx, setExtIdx] = useState(0);
+  const [missing, setMissing] = useState(false);
+  const src = `/images/cara/${index}.${IMAGE_EXTS[extIdx]}`;
+
+  if (missing) {
+    return (
+      <div className="flex h-full w-full items-center justify-center rounded-2xl bg-white/70 text-sm font-semibold text-neutral-700">
+        Add image: <span className="ml-1 font-mono">{index}.png</span>
+      </div>
+    );
   }
-];
+
+  return (
+    <img
+      src={src}
+      alt={`Industry slide ${index}`}
+      loading="lazy"
+      decoding="async"
+      className="h-full w-full rounded-2xl bg-transparent object-contain"
+      onError={() => {
+        const next = extIdx + 1;
+        if (next < IMAGE_EXTS.length) setExtIdx(next);
+        else setMissing(true);
+      }}
+    />
+  );
+}
 
 export default function Industries() {
+  // Set how many slides you plan to add in `/public/images/cara/` as 1.png, 2.png, ...
+  const slides = useMemo(() => Array.from({ length: 9 }, (_, i) => i + 1), []);
+  const [api, setApi] = useState<CarouselApi | undefined>();
+  const [selected, setSelected] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+    const onSelect = () => setSelected(api.selectedScrollSnap());
+    onSelect();
+    api.on('select', onSelect);
+    api.on('reInit', onSelect);
+    return () => {
+      api.off('select', onSelect);
+      api.off('reInit', onSelect);
+    };
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) return;
+    if (typeof window === 'undefined') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const intervalMs = 3200;
+    const id = window.setInterval(() => {
+      api.scrollNext();
+    }, intervalMs);
+    return () => window.clearInterval(id);
+  }, [api]);
+
+  const n = slides.length;
+
   return (
-    <section id="industries" className="py-12 sm:py-16 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16">
-          <span className="text-[#2BB673] tracking-[0.15em] sm:tracking-[0.2em] text-xs sm:text-sm font-medium">INDUSTRIES WE SERVE</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1F3A] mt-3 sm:mt-4 leading-tight">
+    <section
+      id="industries"
+      className="scroll-mt-24 w-full bg-sky-50 pb-12 pt-6 sm:pb-16 sm:pt-10 md:pb-24 md:pt-14"
+    >
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-6 max-w-3xl text-center sm:mb-8 md:mb-10">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#003d82] mt-3 sm:mt-4 leading-tight">
             Expertise Across Multiple Sectors
           </h2>
           <p className="text-base sm:text-lg text-[#1A1A1A]/70 mt-4 sm:mt-6">
@@ -37,28 +80,56 @@ export default function Industries() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {industries.map((industry, index) => {
-            const Icon = industry.icon;
-            return (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-[#F7F9FC] to-white rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-100 hover:border-[#4A90E2]/30 transition-all duration-300 group cursor-pointer hover:shadow-xl hover:-translate-y-1"
-              >
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg sm:rounded-xl bg-gradient-to-br from-[#4A90E2] to-[#2BB673] flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
-                  <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                </div>
+        <div className="relative w-full">
+          <Carousel
+            setApi={setApi}
+            opts={{ loop: true, align: 'center', skipSnaps: false, containScroll: 'trimSnaps' }}
+            className="w-full"
+          >
+            {/* tighter spacing between slides + 3D perspective */}
+            <CarouselContent className="-ml-2 py-4 [perspective:1200px] sm:-ml-3 sm:py-5">
+              {slides.map((slideNumber, i) => {
+                // Coverflow math (handles loop by choosing shortest distance).
+                let d = i - selected;
+                if (d > n / 2) d -= n;
+                if (d < -n / 2) d += n;
+                const clamped = Math.max(-2, Math.min(2, d));
+                const abs = Math.abs(clamped);
 
-                <h3 className="text-base sm:text-xl font-bold text-[#0B1F3A] mb-2 sm:mb-3">
-                  {industry.title}
-                </h3>
+                const rotate = clamped * -28; // deg
+                const scale = 1 - abs * 0.08;
+                // Remove “fog/grey gradient” by avoiding blur/opacity haze.
+                const opacity = 1;
+                const blur = 0;
+                const z = 30 - abs * 10;
 
-                <p className="text-xs sm:text-base text-[#1A1A1A]/70">
-                  {industry.description}
-                </p>
-              </div>
-            );
-          })}
+                return (
+                  <CarouselItem
+                    key={slideNumber}
+                    className="basis-[92%] pl-2 sm:basis-[62%] sm:pl-3 lg:basis-[42%]"
+                  >
+                    <div
+                      className="relative mx-auto aspect-[4/5] w-full max-w-[420px] sm:max-w-[460px]"
+                      style={{
+                        transform: `translateZ(${z}px) rotateY(${rotate}deg) scale(${scale})`,
+                        opacity,
+                        filter: blur ? `blur(${blur}px)` : undefined,
+                        transition:
+                          'transform 420ms cubic-bezier(0.22,1,0.36,1), opacity 420ms cubic-bezier(0.22,1,0.36,1), filter 420ms cubic-bezier(0.22,1,0.36,1)',
+                      }}
+                    >
+                      <div className="relative h-full w-full rounded-2xl shadow-[0_30px_70px_rgba(0,0,0,0.18)]">
+                        <CarouselImage index={slideNumber} />
+                      </div>
+                    </div>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+
+            <CarouselPrevious className="left-4 top-1/2 -translate-y-1/2 border border-neutral-200 bg-white/80 text-neutral-800 shadow-md backdrop-blur-sm hover:bg-white" />
+            <CarouselNext className="right-4 top-1/2 -translate-y-1/2 border border-neutral-200 bg-white/80 text-neutral-800 shadow-md backdrop-blur-sm hover:bg-white" />
+          </Carousel>
         </div>
       </div>
     </section>

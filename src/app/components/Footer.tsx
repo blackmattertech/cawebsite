@@ -26,11 +26,11 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-base sm:text-lg mb-3 sm:mb-4">Quick Links</h4>
             <ul className="space-y-2 sm:space-y-3">
-              <li><a href="#home" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Home</a></li>
-              <li><a href="#about" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">About Us</a></li>
-              <li><a href="#services" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Services</a></li>
-              <li><a href="#industries" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Industries</a></li>
-              <li><a href="#careers" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Careers</a></li>
+              <li><a href="/#home" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Home</a></li>
+              <li><a href="/#about" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">About Us</a></li>
+              <li><a href="/services" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Services</a></li>
+              <li><a href="/#industries" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Industries</a></li>
+              <li><a href="/#careers" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Careers</a></li>
             </ul>
           </div>
 
@@ -38,11 +38,11 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-base sm:text-lg mb-3 sm:mb-4">Our Services</h4>
             <ul className="space-y-2 sm:space-y-3">
-              <li><a href="#services" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Taxation</a></li>
-              <li><a href="#services" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Audit & Assurance</a></li>
-              <li><a href="#services" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">GST Consulting</a></li>
-              <li><a href="#services" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Compliance</a></li>
-              <li><a href="#services" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Business Advisory</a></li>
+              <li><a href="/services" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Taxation</a></li>
+              <li><a href="/services" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Audit & Assurance</a></li>
+              <li><a href="/services" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">GST Consulting</a></li>
+              <li><a href="/services" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Compliance</a></li>
+              <li><a href="/services" className="text-sm sm:text-base text-white/70 hover:text-[#2BB673] transition-colors">Business Advisory</a></li>
             </ul>
           </div>
 
